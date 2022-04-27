@@ -1,0 +1,114 @@
+@import './_breakpoints';
+@import './_template';
+
+
+
+
+$primary-dark: rgb(82, 38, 94);
+$shadow-1: 5px 0 12px rgba(50, 30, 56, 0.95), -5px 0 12px rgba(50, 30, 56, 0.95), 0 4px 12px rgba(50, 30, 56, 0.95);
+
+$shadow-2: rgba(65, 32, 73, 0.575) 0 2px 4px, rgba(65, 32, 73, 0.575) 0 7px 13px -3px, rgba(65, 32, 73, 0.575) 0 -3px 0 inset;
+
+$shadow-3: rgba(65, 32, 73, 0.4) 0 -2px 4px, rgba(65, 32, 73, 0.3) 0 -7px 13px 3px, rgba(65, 32, 73, 0.2) 0 3px 0 inset;
+
+
+
+body,html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+    background-image: url('assets/witchcraft_in_the_making_by_kilirai_der5y6e-fullview.jpg');
+    background-size: cover;
+	background-repeat:no-repeat;
+	background-position: center center;
+    font-size: 10px;
+}
+
+//=================================================
+
+h1 {
+    color: beige;
+	font-size: clamp(6rem, -0.875rem + 12.333vw, 7.5rem);
+    // font-size: clamp(8em, 10rem, 12em);
+    font-family: 'Marcellus', serif;
+	text-align: center;
+    text-shadow: $shadow-1;
+	margin: 2rem;
+	margin-top: 10rem;
+	
+    @include respond-to('small') {
+		margin-top: 1rem;
+    }
+
+    @include respond-to('medium') {
+		margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/*=================================
+BUTTONS & CONTAINERS
+==================================*/
+
+.general-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+		flex-flow: row wrap;
+        align-items: center;
+
+		@include respond-to('small') {
+			flex-direction: column;
+		}
+
+        .music-btn {
+            border: 1px solid rgba(0, 0, 0, 55%);
+            padding: 1rem;
+            margin: 1rem;
+            cursor: pointer;
+            border-radius: 50%;
+            background-color: #ffffff;
+            box-shadow: $shadow-2;
+
+			@include respond-to('small') {
+				margin: 0.5rem 1rem;
+				padding: 1.5rem;
+				font-size: 1.3em;
+			}
+
+            &:active {
+                box-shadow: $shadow-3;
+            }
+
+            .icon {
+                color: $primary-dark;
+                pointer-events: none;
+            }
+
+
+            &.play {
+                border: 1px solid rgba(0, 0, 0, 55%);
+                padding: 3%;
+                cursor: pointer;
+                border-radius: 50%;
+                background-color: $primary-dark;
+                box-shadow: $shadow-2;
+
+                .icon {
+                    color: rgb(207, 180, 214);
+                }
+            }
+        }
+    }
+}
